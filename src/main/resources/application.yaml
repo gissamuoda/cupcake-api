@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: cupcakeapi
+  profiles:
+    default: "local"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
