@@ -1,5 +1,6 @@
 package com.gissamusworkspace.cupcakeapi.infrastructure;
 
+import com.gissamusworkspace.cupcakeapi.domains.dtos.CupcakeDTO;
 import com.gissamusworkspace.cupcakeapi.domains.entities.CupcakeEntity;
 import com.gissamusworkspace.cupcakeapi.domains.forms.CupcakeForm;
 
@@ -15,6 +16,17 @@ public class CupcakeBuild {
         form.setIngredientes(getIngredientesList(withLists));
 
         return form;
+    }
+
+    public static CupcakeDTO getDto(final boolean withLists) {
+        CupcakeDTO dto = new CupcakeDTO();
+        dto.setId(UUID.randomUUID());
+        dto.setNome("cupcake test");
+        dto.setSabor("test");
+        dto.setIngredientes(getIngredientesList(withLists));
+        dto.setDisabled(false);
+
+        return dto;
     }
 
     public static CupcakeEntity getEntity(final boolean withLists) {

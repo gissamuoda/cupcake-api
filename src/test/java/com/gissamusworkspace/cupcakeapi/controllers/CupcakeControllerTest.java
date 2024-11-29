@@ -1,7 +1,7 @@
 package com.gissamusworkspace.cupcakeapi.controllers;
 
-import com.gissamusworkspace.cupcakeapi.domains.dtos.CupcakeDTO;
 import com.gissamusworkspace.cupcakeapi.domains.forms.CupcakeForm;
+import com.gissamusworkspace.cupcakeapi.infrastructure.CupcakeBuild;
 import com.gissamusworkspace.cupcakeapi.services.CupcakeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,9 +32,9 @@ class CupcakeControllerTest {
 
     @Test
     void testPostEndpoint() {
-        when(service.saveCupcake(any(CupcakeForm.class))).thenReturn(new CupcakeDTO());
+        when(service.saveCupcake(any(CupcakeForm.class))).thenReturn(CupcakeBuild.getDto(true));
 
-        assertDoesNotThrow(() -> controller.saveCupcake(new CupcakeForm()));
+        assertDoesNotThrow(() -> controller.saveCupcake(CupcakeBuild.getForm(true)));
 
     }
 
