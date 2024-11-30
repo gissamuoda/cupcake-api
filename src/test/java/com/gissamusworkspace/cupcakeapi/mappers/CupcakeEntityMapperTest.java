@@ -49,7 +49,7 @@ class CupcakeEntityMapperTest {
 
     @Test
     void testSuccessMapEntityToDto() {
-        final CupcakeEntity entity = CupcakeBuild.getEntity(true);
+        final CupcakeEntity entity = CupcakeBuild.getEntity(false, true);
         final CupcakeDTO dto = mapper.mapDTO(entity);
 
         assertEquals(dto.getId(), entity.getId());
@@ -61,7 +61,7 @@ class CupcakeEntityMapperTest {
 
     @Test
     void testSuccessMapEntityToDtoWithoutList() {
-        final CupcakeEntity entity = CupcakeBuild.getEntity(false);
+        final CupcakeEntity entity = CupcakeBuild.getEntity(false, false);
         final CupcakeDTO dto = mapper.mapDTO(entity);
 
         assertEquals(dto.getId(), entity.getId());

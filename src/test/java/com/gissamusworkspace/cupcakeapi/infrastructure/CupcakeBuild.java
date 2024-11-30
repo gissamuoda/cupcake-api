@@ -29,13 +29,13 @@ public class CupcakeBuild {
         return dto;
     }
 
-    public static CupcakeEntity getEntity(final boolean withLists) {
+    public static CupcakeEntity getEntity(final boolean disabled, final boolean withLists) {
         CupcakeEntity entity = new CupcakeEntity();
         entity.setId(UUID.randomUUID());
         entity.setNome("cupcake test");
         entity.setSabor("test");
         entity.setIngredientes(getIngredientesList(withLists));
-        entity.setDisabled(false);
+        entity.setDisabled(disabled);
 
         return entity;
     }
