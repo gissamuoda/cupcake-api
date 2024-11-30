@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class PedidoDTO {
 
     private UUID id;
 
-    private Map<CupcakeDTO, Integer> cupcakes;
+    private Map<String, Integer> cupcakes = new HashMap<>();
 
     private TipoPagamento tipoPagamento;
 

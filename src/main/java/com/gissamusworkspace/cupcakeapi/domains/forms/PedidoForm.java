@@ -12,10 +12,10 @@ import java.util.Map;
 public class PedidoForm {
 
     @NotNull
-    private String tipoPagamento;
+    private Integer tipoPagamento;
 
     @NotNull
-    private String tipoEntrega;
+    private Integer tipoEntrega;
 
     @NotNull
     @NotEmpty
