@@ -47,10 +47,8 @@ public class CupcakeService {
         return mapper.mapDTO(updatedCupcake);
     }
 
-    private CupcakeEntity getCupcakeById(final UUID cupcakeId) {
+    public CupcakeEntity getCupcakeById(final UUID cupcakeId) {
         return repository.findById(cupcakeId).orElseThrow();
     }
-
-
 
 }
