@@ -18,7 +18,7 @@ import java.util.UUID;
 public class CupcakeEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid2", strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private String nome;
