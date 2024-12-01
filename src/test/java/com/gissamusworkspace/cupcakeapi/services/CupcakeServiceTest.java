@@ -56,7 +56,7 @@ class CupcakeServiceTest {
     }
 
     @Test
-    void testDdeleteCupcakeNotFoundId() {
+    void testDeleteCupcakeNotFoundId() {
         when(repository.findById(any(UUID.class))).thenThrow(new EntityNotFoundException());
 
         assertThrows(EntityNotFoundException.class, () -> service.deleteCupcake(UUID.randomUUID().toString()));
