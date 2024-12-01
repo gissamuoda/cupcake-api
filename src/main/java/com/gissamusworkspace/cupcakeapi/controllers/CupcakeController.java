@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.NoSuchElementException;
+
 @RestController
 @RequestMapping("/cupcake-api/v1/cupcake")
 @RequiredArgsConstructor
@@ -53,8 +55,10 @@ public class CupcakeController {
             cupcakeService.deleteCupcake(cupcakeId);
 
             return ResponseEntity.noContent().build();
-        } catch (final Exception exception) {
+        } catch (final NoSuchElementException noSuchElementException) {
             return ResponseEntity.notFound().build();
+        } catch (final Exception exception) {
+            return ResponseEntity.internalServerError().build();
         }
     }
 
@@ -66,8 +70,10 @@ public class CupcakeController {
             CupcakeDTO dto = cupcakeService.disableCupcake(cupcakeId);
 
             return ResponseEntity.ok(dto);
-        } catch (final Exception exception) {
+        } catch (final NoSuchElementException noSuchElementException) {
             return ResponseEntity.notFound().build();
+        } catch (final Exception exception) {
+            return ResponseEntity.internalServerError().build();
         }
 
     }

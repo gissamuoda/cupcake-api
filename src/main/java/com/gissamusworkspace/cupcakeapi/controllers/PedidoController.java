@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.NoSuchElementException;
+
 @RestController
 @RequestMapping("/cupcake-api/v1/pedidos")
 @RequiredArgsConstructor
@@ -53,9 +55,10 @@ public class PedidoController {
             pedidoService.deletePedido(pedidoId);
 
             return ResponseEntity.noContent().build();
-
-        } catch (final Exception exception) {
+        } catch (final NoSuchElementException noSuchElementException) {
             return ResponseEntity.notFound().build();
+        } catch (final Exception exception) {
+            return ResponseEntity.internalServerError().build();
         }
     }
 
@@ -67,8 +70,10 @@ public class PedidoController {
             PedidoDTO pedidoDTO = pedidoService.updateStatusPedido(pedidoId, status);
 
             return ResponseEntity.ok(pedidoDTO);
-        } catch (final Exception exception) {
+        } catch (final NoSuchElementException noSuchElementException) {
             return ResponseEntity.notFound().build();
+        } catch (final Exception exception) {
+            return ResponseEntity.internalServerError().build();
         }
     }
 
