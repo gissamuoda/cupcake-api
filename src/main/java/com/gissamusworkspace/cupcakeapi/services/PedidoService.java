@@ -7,6 +7,7 @@ import com.gissamusworkspace.cupcakeapi.domains.enums.StatusPedido;
 import com.gissamusworkspace.cupcakeapi.domains.forms.PedidoForm;
 import com.gissamusworkspace.cupcakeapi.mappers.PedidoEntityMapper;
 import com.gissamusworkspace.cupcakeapi.repositories.PedidoRepository;
+import com.gissamusworkspace.cupcakeapi.validators.PedidoFormValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +30,8 @@ public class PedidoService {
     }
 
     public PedidoDTO savePedido(final PedidoForm form) {
+        PedidoFormValidator.validate(form);
+
         PedidoEntity pedidoEntity = mapper.mapEntity(form);
 
         form.getCupcakesIds().forEach((cupcakeId, quantity) -> {

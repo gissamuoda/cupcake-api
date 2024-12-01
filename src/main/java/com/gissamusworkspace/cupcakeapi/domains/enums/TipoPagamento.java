@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -29,6 +31,11 @@ public enum TipoPagamento {
 
     public static TipoPagamento get(Integer index) {
         return mapValues.get(index);
+    }
+
+    public static List<String> getExpectedValuesMessage() {
+        return Arrays.stream(TipoPagamento.values())
+                .map(tipoPagamento -> tipoPagamento + " - " + tipoPagamento.getIndex()).toList();
     }
 
 }
