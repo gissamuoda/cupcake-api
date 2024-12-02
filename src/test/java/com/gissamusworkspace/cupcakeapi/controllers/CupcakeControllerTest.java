@@ -13,10 +13,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
@@ -35,7 +38,14 @@ class CupcakeControllerTest {
     void testGetEndpoint() {
         when(service.getCupcakes(any(Pageable.class))).thenReturn(Page.empty());
 
-        assertDoesNotThrow(() -> controller.getCupcakes(Pageable.unpaged()));
+        assertDoesNotThrow(() -> controller.getCupcakes(Pageable.unpaged(), null));
+    }
+
+    @Test
+    void testGetEndpointFiltered() {
+        when(service.getCupcakes(any(Pageable.class), anyBoolean())).thenReturn(Page.empty());
+
+        assertDoesNotThrow(() -> controller.getCupcakes(Pageable.unpaged(), true));
     }
 
     @Test
@@ -58,7 +68,7 @@ class CupcakeControllerTest {
 
     @Test
     void testDeleteEndpointNoResult() {
-        doThrow(new RuntimeException()).when(service).deleteCupcake(anyString());
+        doThrow(new NoSuchElementException()).when(service).deleteCupcake(anyString());
 
         assertDoesNotThrow(() -> {
             ResponseEntity<?> response = controller.deleteCupcake("randomString");
@@ -68,8 +78,19 @@ class CupcakeControllerTest {
     }
 
     @Test
+    void testDeleteEndpointException() {
+        doThrow(new RuntimeException()).when(service).deleteCupcake(anyString());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.deleteCupcake("randomString");
+
+            assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        });
+    }
+
+    @Test
     void testDisableCupcakeEndpointSuccessResult() {
-        when(service.disableCupcake(anyString())).thenReturn(CupcakeBuild.getDto(true));
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenReturn(CupcakeBuild.getDto(true));
 
         assertDoesNotThrow(() -> {
             ResponseEntity<?> response = controller.disableCupcake("randomString");
@@ -81,12 +102,57 @@ class CupcakeControllerTest {
 
     @Test
     void testDisableCupcakeEndpointNoResult() {
-        when(service.disableCupcake(anyString())).thenThrow(new RuntimeException());
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenThrow(new NoSuchElementException());
 
         assertDoesNotThrow(() -> {
             ResponseEntity<?> response = controller.disableCupcake("randomString");
 
             assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        });
+    }
+
+    @Test
+    void testDisableCupcakeEndpointException() {
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenThrow(new RuntimeException());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.disableCupcake("randomString");
+
+            assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        });
+    }
+
+    @Test
+    void testEnableCupcakeEndpointSuccessResult() {
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenReturn(CupcakeBuild.getDto(true));
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.enableCupcake("randomString");
+
+            assertEquals(HttpStatus.OK, response.getStatusCode());
+            assertNotNull(response.getBody());
+        });
+    }
+
+    @Test
+    void testEnableCupcakeEndpointNoResult() {
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenThrow(new NoSuchElementException());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.enableCupcake("randomString");
+
+            assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        });
+    }
+
+    @Test
+    void testEnableCupcakeEndpointException() {
+        when(service.updateDisableFlagCupcake(anyString(), anyBoolean())).thenThrow(new RuntimeException());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.enableCupcake("randomString");
+
+            assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
         });
     }
 }

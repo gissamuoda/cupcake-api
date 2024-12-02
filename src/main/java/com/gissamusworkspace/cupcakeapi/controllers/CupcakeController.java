@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/cupcake-api/v1/cupcake")
@@ -32,8 +34,13 @@ public class CupcakeController {
     private final CupcakeService cupcakeService;
 
     @GetMapping
-    public PagedModel<CupcakeDTO> getCupcakes(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 9) Pageable page) {
-        return new PagedModel<>(cupcakeService.getCupcakes(page));
+    public PagedModel<CupcakeDTO> getCupcakes(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 9) Pageable page,
+                                              @RequestParam(name = "disabled", required = false) Boolean filterDisabled) {
+        if (Objects.nonNull(filterDisabled)) {
+            return new PagedModel<>(cupcakeService.getCupcakes(page, filterDisabled));
+        } else {
+            return new PagedModel<>(cupcakeService.getCupcakes(page));
+        }
     }
 
     @PostMapping

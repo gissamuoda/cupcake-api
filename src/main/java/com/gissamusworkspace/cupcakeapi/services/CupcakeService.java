@@ -24,6 +24,10 @@ public class CupcakeService {
         return repository.findAll(page).map(mapper::mapDTO);
     }
 
+    public Page<CupcakeDTO> getCupcakes(final Pageable page, final Boolean disabled) {
+        return repository.findAllByDisabled(page, disabled).map(mapper::mapDTO);
+    }
+
     public CupcakeDTO saveCupcake(final CupcakeForm form) {
         final CupcakeEntity entity = mapper.mapEntity(form);
 
