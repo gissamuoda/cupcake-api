@@ -17,11 +17,14 @@ import java.time.ZoneOffset;
 @RequiredArgsConstructor
 public class TokenService {
 
-    @Value("${cupcakeapi.security.token.secret}")
     private String secret;
 
-    @Value("${cupcakeapi.security.token.issuer}")
     private String issuer;
+
+    public TokenService(@Value("${cupcakeapi.security.token.secret}") String secret, @Value("${cupcakeapi.security.token.issuer}") String issuer) {
+        this.secret = secret;
+        this.issuer = issuer;
+    }
 
     public String generateToken(UserDetails userDetails) {
         try {

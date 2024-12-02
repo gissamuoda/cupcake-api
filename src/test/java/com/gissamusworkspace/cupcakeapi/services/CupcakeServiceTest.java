@@ -19,6 +19,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
@@ -36,6 +37,13 @@ class CupcakeServiceTest {
         when(repository.findAll(any(Pageable.class))).thenReturn(Page.empty());
 
         assertDoesNotThrow(() -> service.getCupcakes(Pageable.ofSize(1)));
+    }
+
+    @Test
+    void testGetCupcakesWithDisabledFilter() {
+        when(repository.findAllByDisabled(any(Pageable.class), anyBoolean())).thenReturn(Page.empty());
+
+        assertDoesNotThrow(() -> service.getCupcakes(Pageable.ofSize(1), false));
     }
 
     @Test
