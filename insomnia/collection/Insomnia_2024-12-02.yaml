@@ -1,0 +1,624 @@
+_type: export
+__export_format: 4
+__export_date: 2024-12-02T20:16:20.248Z
+__export_source: insomnia.desktop.app:v10.0.0
+resources:
+  - _id: req_c308da3b53e243eb8dadca956a4f14c2
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733147648752
+    created: 1732759940654
+    url: "{{ _.endpoint }}/actuator/health"
+    name: "[actuator] health"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGN1cGNha2UtYXBpLmNvbSIsImV4cCI6MTczMzE2NTYzOX0.0T1AOq6_6XONWeprQ-ViyR581PBUIgT6HQpSLKsjhP0
+    metaSortKey: -1733090118582
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_66740eab6a1b43a6b14ee08059e4310f
+    parentId: null
+    modified: 1732673578610
+    created: 1732673578610
+    name: "[University] cupcake-api"
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_8832c405d31846e7bdb0e03748c3c29c
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733158916613
+    created: 1733065236393
+    url: "{{ _.endpoint }}/cupcake-api/login"
+    name: "[cliente] login"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "cliente2@email.com", 
+        	"senha": "cliente2"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication: {}
+    metaSortKey: -1733090118482
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_286de63b086b4ff593069380e7398785
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733158910707
+    created: 1733090118382
+    url: "{{ _.endpoint }}/cupcake-api/v1/cliente"
+    name: "[cliente] add new"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "cliente2",
+        	"email": "cliente2@email.com",
+        	"senha": "cliente2",
+        	"telefone": "telefone2",
+        	"enderecos": [
+        		{
+        			"cidade": "cidade 1",
+        			"rua": "rua rua 1",
+        			"bairro": "bairro",
+        			"numeroCasa": "1",
+        			"complemento": "complemento"
+        		}
+        	]
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication: {}
+    metaSortKey: -1733090118382
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cbbfe92fe0484fa7a15c172086137622
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733104416244
+    created: 1733099585458
+    url: "{{ _.endpoint }}/cupcake-api/v1/administrador"
+    name: "[admin] add new"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Administrador do Sistema 3",
+        	"email": "adm3@cupcakeria.com",
+        	"senha": "adm3",
+        	"telephone": "+55 (43) 99999-9999"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImNsaWVudGVfMUBlbWFpbC5jb20iLCJleHAiOjE3MzMxMTE2MTF9.OeVsognUf0swNaFGqtpIwsC7Cc3vHlpKbxet-P-ekL0
+    metaSortKey: -1733042726693.25
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b36466589164420f8ae15ff1871f6182
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733145697225
+    created: 1733100725805
+    url: "{{ _.endpoint }}/cupcake-api/login"
+    name: "[admin] login"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "admin@cupcake-api.com", 
+        	"senha": "admin"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication: {}
+    metaSortKey: -1732984080142.125
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9bab39341a86446a878036b576797293
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733144337812
+    created: 1732673586399
+    url: "{{ _.endpoint }}/cupcake-api/v1/cupcake"
+    name: "[cupcake] list all "
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+        id: pair_6a304c20ff634d938e38e1158f4f676d
+    authentication:
+      type: none
+    metaSortKey: -1732925439522
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733081016653
+    created: 1732925433516
+    name: cupcake
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1732925433591
+    _type: request_group
+  - _id: req_cd4124ce7bb048cc87e7274f53450ea3
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733139651489
+    created: 1733139644137
+    url: "{{ _.endpoint }}/cupcake-api/v1/cupcake"
+    name: "[cupcake] list all disabled"
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_40dbc6375967462eb4a6e9f9f374466f
+        name: disabled
+        value: "true"
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+        id: pair_6a304c20ff634d938e38e1158f4f676d
+    authentication:
+      type: none
+    metaSortKey: -1732925439497
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_98b84e9b86a94710afc52a666dc1a5a7
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733139637787
+    created: 1733139609421
+    url: "{{ _.endpoint }}/cupcake-api/v1/cupcake"
+    name: "[cupcake] list all non disabled"
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_40dbc6375967462eb4a6e9f9f374466f
+        name: disabled
+        value: "false"
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+        id: pair_6a304c20ff634d938e38e1158f4f676d
+    authentication:
+      type: none
+    metaSortKey: -1732925439472
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8ef41ca77a6344a19ba09d4197ebf010
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733145740152
+    created: 1732758999912
+    url: "{{ _.endpoint }}/cupcake-api/v1/cupcake"
+    name: "[cupcake] add new "
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Bananada", 
+        	"sabor": "banana",  
+        	"ingredientes": [
+        		"banana", 
+        		"farinha",
+        		"leite"
+        	]
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a390cc8ea07d43f592c2571fdd2fada3
+      - name: User-Agent
+        value: insomnia/10.0.0
+        id: pair_4eb805eba2ed46e2883d889f45f0325f
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGN1cGNha2UtYXBpLmNvbSIsImV4cCI6MTczMzE2MzcwMH0.XBGeJyVLrRP3_929VyeO9Avh4NoyIO2_ken1cbyC0mE
+    metaSortKey: -1732925439422
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8caa3703e58f438fa2743e0905dc9031
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733145770768
+    created: 1732925023956
+    url: "{{ _.endpoint
+      }}/cupcake-api/v1/cupcake/7ae97e10-8867-4961-ba10-b6c317c0ce5e"
+    name: "[cupcake] remove"
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGN1cGNha2UtYXBpLmNvbSIsImV4cCI6MTczMzE2MzcwMH0.XBGeJyVLrRP3_929VyeO9Avh4NoyIO2_ken1cbyC0mE
+    metaSortKey: -1732925439322
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_668dd7f9b46d420cbd2a45c940696d7a
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733145814576
+    created: 1732928611416
+    url: "{{ _.endpoint
+      }}/cupcake-api/v1/cupcake/4a3445c1-2a50-4dae-8a35-01e0c6c8bcb3/disable"
+    name: "[cupcake] disable cupcake"
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGN1cGNha2UtYXBpLmNvbSIsImV4cCI6MTczMzE2MzgwOH0.l2tmoYxQv5bFrL2IyrF1u5hZYY09qcNkQewyijVLymY
+    metaSortKey: -1732925439222
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fe20c5e0e0a14b71aa98ae7701cc71ea
+    parentId: fld_c49d870a13a74bb68caa5bbd9c01d8ab
+    modified: 1733106108396
+    created: 1733106078008
+    url: "{{ _.endpoint
+      }}/cupcake-api/v1/cupcake/a749d3c6-8767-403d-9a4d-f529cfd76013/enable"
+    name: "[cupcake] enable cupcake"
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbTJAY3VwY2FrZXJpYS5jb20iLCJleHAiOjE3MzMxMTMyNTl9.Js4HLRPuug3tnXMEB-OY9fAIfE6zH56B6oGtbb_aMPA
+    metaSortKey: -1732626704932
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e337371bc92947c98c52d5e34e1ee5c3
+    parentId: fld_ee9248d9f208440abeadbc2721b5277e
+    modified: 1733158887301
+    created: 1732993542663
+    url: "{{ _.endpoint }}/cupcake-api/v1/pedidos"
+    name: "[pedido] list all"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGN1cGNha2UtYXBpLmNvbSIsImV4cCI6MTczMzE3Njg3MX0.a74wqxVESX0I3NXzNWcSmug6qGEaj4yZIY0AMB6QeZQ
+    metaSortKey: -1732993542813
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ee9248d9f208440abeadbc2721b5277e
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733065228230
+    created: 1732993538728
+    name: Pedido
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1732925433566
+    _type: request_group
+  - _id: req_454dc4fdfe1c49ec89fe465f1cd9ade8
+    parentId: fld_ee9248d9f208440abeadbc2721b5277e
+    modified: 1733145899758
+    created: 1732993596343
+    url: "{{ _.endpoint }}/cupcake-api/v1/pedidos"
+    name: "[pedido] add new "
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"tipoEntrega": 0,
+        	"tipoPagamento": 0, 
+        	"cupcakesIds": {
+        		"1b0344dc-9b81-481d-b59d-ec9e56118b69": "1",
+        		"0192341d-3ace-47aa-af19-bd4fea0f2366": "3" 
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImNsaWVudGVAZW1haWwuY29tIiwiZXhwIjoxNzMzMTYzODU1fQ.ZmH-tbOPZsVUm1cA_TXIHtMXdVu5VEsAyhaRibx5Js4
+    metaSortKey: -1732993542713
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4c2cc1dd78fb4a51919d07dbd4e1c781
+    parentId: fld_ee9248d9f208440abeadbc2721b5277e
+    modified: 1733100681884
+    created: 1733018034727
+    url: "{{ _.endpoint }}/cupcake-api/v1/pedidos"
+    name: "[pedido] try add invalid pedido"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"tipoPagamento": 8, 
+        	"tipoEntrega": 5, 
+        	"cupcakesIds": {
+        		"60d8f69c-c36e-45f1-b615-85af3ae68149": "1"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      disabled: false
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbWluQGVtYWlsLmNvbSIsImlkIjoiYmQyNzM5NmMtYzRhZC00NDhjLWI4MGEtNGJkMTgwMDJmMTRjIiwicm9sZSI6WyJBRE1JTiJdLCJleHAiOjE3MzMxMDc4MjB9.IwBjr864QssgdwkQRFOuAH8X6jhfKPvasNRlaKeAcig
+    metaSortKey: -1732993542638
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_181994723bb34e5ea7749db8afca98f8
+    parentId: fld_ee9248d9f208440abeadbc2721b5277e
+    modified: 1733104329810
+    created: 1732993582251
+    url: "{{ _.endpoint
+      }}/cupcake-api/v1/pedidos/5dbb988b-f430-4514-8282-523de156a586"
+    name: "[pedido] delete"
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbTJAY3VwY2FrZXJpYS5jb20iLCJleHAiOjE3MzMxMTE0OTh9.qpl67gJfkF7S2EemnDxDmbAvye9OG1Pek7brrk0ZIi8
+    metaSortKey: -1732993542563
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c0aa6973d4c74716b4e57b685eba437a
+    parentId: fld_ee9248d9f208440abeadbc2721b5277e
+    modified: 1733103208016
+    created: 1732994665326
+    url: "{{ _.endpoint
+      }}/cupcake-api/v1/pedidos/b4e32c38-c5b1-4c07-a084-3740144dbb0a/3"
+    name: "[pedido] update status "
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.0.0
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgQ3VwY2FrZWFwaSIsInN1YiI6ImFkbTJAY3VwY2FrZXJpYS5jb20iLCJleHAiOjE3MzMxMTAzOTB9.Ipy3VVKyWviB23N4-eSyrgnWOXxG-FqkmWsg0n76YiY
+    metaSortKey: -1732993542463
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_218643c18d977ab1619e7a94216c647bfa25e7f0
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1732673578616
+    created: 1732673578616
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1732673578616
+    _type: environment
+  - _id: jar_218643c18d977ab1619e7a94216c647bfa25e7f0
+    parentId: wrk_66740eab6a1b43a6b14ee08059e4310f
+    modified: 1733062785575
+    created: 1732673578618
+    name: Default Jar
+    cookies:
+      - key: JSESSIONID
+        value: D892CDD33CB555454A3D651E0D21B7A6
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2024-12-01T14:19:45.575Z
+        lastAccessed: 2024-12-01T14:19:45.575Z
+        id: 2a1dc3ad-8a8a-4818-956d-28ab4c6211fc
+    _type: cookie_jar
+  - _id: env_b75eb92135d7456aa03c0c4bdfbe5809
+    parentId: env_218643c18d977ab1619e7a94216c647bfa25e7f0
+    modified: 1732674001041
+    created: 1732673926235
+    name: local
+    data:
+      endpoint: http://localhost:8080
+    dataPropertyOrder:
+      "&":
+        - endpoint
+    color: null
+    isPrivate: false
+    metaSortKey: 1732673926235
+    _type: environment
+  - _id: env_edea6ae005e14e49815d5c06a3564592
+    parentId: env_218643c18d977ab1619e7a94216c647bfa25e7f0
+    modified: 1733144738112
+    created: 1733144302003
+    name: heroku
+    data:
+      endpoint: https://cupcake-api-92474fed9705.herokuapp.com
+    dataPropertyOrder:
+      "&":
+        - endpoint
+    color: "#9900ff"
+    isPrivate: false
+    metaSortKey: 1732673926285
+    _type: environment
