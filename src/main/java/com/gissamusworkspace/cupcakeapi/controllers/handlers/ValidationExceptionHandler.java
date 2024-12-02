@@ -1,4 +1,4 @@
-package com.gissamusworkspace.cupcakeapi.controllers.handler;
+package com.gissamusworkspace.cupcakeapi.controllers.handlers;
 
 import com.gissamusworkspace.cupcakeapi.domains.dtos.ValidationErrorDTO;
 import com.gissamusworkspace.cupcakeapi.exceptions.ValidationException;

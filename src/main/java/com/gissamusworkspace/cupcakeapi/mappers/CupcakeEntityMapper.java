@@ -19,7 +19,6 @@ public interface CupcakeEntityMapper {
     @Mapping(target = "disabled", constant = "false")
     CupcakeEntity mapEntity(final CupcakeForm form);
 
-
     @Mapping(target = "id", source = "id")
     @Mapping(target = "nome", source = "nome")
     @Mapping(target = "sabor", source = "sabor")

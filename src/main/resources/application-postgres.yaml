@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cupcakeapi
+    username: cupcakeapi
+    password: localhost
+  jpa:
+    hibernate:
+      ddl-auto: update

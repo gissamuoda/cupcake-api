@@ -38,9 +38,9 @@ public class CupcakeService {
         repository.deleteById(UUID.fromString(cupcakeId));
     }
 
-    public CupcakeDTO disableCupcake(final String cupcakeId) {
+    public CupcakeDTO updateDisableFlagCupcake(final String cupcakeId, final Boolean disabled){
         final CupcakeEntity cupcakeToDisable = getCupcakeById(UUID.fromString(cupcakeId));
-        cupcakeToDisable.setDisabled(true);
+        cupcakeToDisable.setDisabled(disabled);
 
         final CupcakeEntity updatedCupcake = repository.save(cupcakeToDisable);
 

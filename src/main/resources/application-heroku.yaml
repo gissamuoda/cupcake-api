@@ -1,8 +1,8 @@
 spring:
   datasource:
     url:
-    driverClassName:
     username:
     password:
-
-
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClienteDTO {
+public class AdministradorDTO {
 
     private UUID id;
 
@@ -21,7 +20,5 @@ public class ClienteDTO {
     private String email;
 
     private String telephone;
-
-    private List<EnderecoDTO> enderecos;
 
 }

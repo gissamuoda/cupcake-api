@@ -34,22 +34,18 @@ public class PedidoController {
     private final PedidoService pedidoService;
 
     @GetMapping
-    @Cacheable(value = "listaPedidos")
     public PagedModel<PedidoDTO> getPedidos(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 3) final Pageable page) {
         return new PagedModel<>(pedidoService.getPedidos(page));
     }
 
     @PostMapping
     @Transactional
-    @CacheEvict(value = "listaPedidos", allEntries = true)
-    @ResponseStatus(HttpStatus.CREATED)
     public PedidoDTO savePedido(@RequestBody @Valid final PedidoForm pedidoForm) {
         return pedidoService.savePedido(pedidoForm);
     }
 
     @DeleteMapping("/{pedidoId}")
     @Transactional
-    @CacheEvict(value = "listaPedidos", allEntries = true)
     public ResponseEntity<?> deletePedido(@PathVariable final String pedidoId) {
         try {
             pedidoService.deletePedido(pedidoId);
@@ -64,7 +60,6 @@ public class PedidoController {
 
     @PutMapping("/{pedidoId}/{status}")
     @Transactional
-    @CacheEvict(value = "listaPedidos", allEntries = true)
     public ResponseEntity<?> updateStatusPedido(@PathVariable final String pedidoId, @PathVariable final Integer status) {
         try {
             PedidoDTO pedidoDTO = pedidoService.updateStatusPedido(pedidoId, status);

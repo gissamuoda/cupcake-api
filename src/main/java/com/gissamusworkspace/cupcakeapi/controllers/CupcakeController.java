@@ -5,8 +5,6 @@ import com.gissamusworkspace.cupcakeapi.domains.forms.CupcakeForm;
 import com.gissamusworkspace.cupcakeapi.services.CupcakeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -34,7 +32,6 @@ public class CupcakeController {
     private final CupcakeService cupcakeService;
 
     @GetMapping
-    @Cacheable(value = "listaCupcakes")
     public PagedModel<CupcakeDTO> getCupcakes(@PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 9) Pageable page) {
         return new PagedModel<>(cupcakeService.getCupcakes(page));
     }
@@ -42,14 +39,12 @@ public class CupcakeController {
     @PostMapping
     @Transactional
     @ResponseStatus(HttpStatus.CREATED)
-    @CacheEvict(value = "listaCupcakes", allEntries = true)
     public CupcakeDTO saveCupcake(@RequestBody @Valid final CupcakeForm cupcakeForm) {
         return cupcakeService.saveCupcake(cupcakeForm);
     }
 
     @DeleteMapping("/{cupcakeId}")
     @Transactional
-    @CacheEvict(value = "listaCupcakes", allEntries = true)
     public ResponseEntity<?> deleteCupcake(@PathVariable final String cupcakeId) {
         try {
             cupcakeService.deleteCupcake(cupcakeId);
@@ -64,10 +59,9 @@ public class CupcakeController {
 
     @PutMapping("/{cupcakeId}/disable")
     @Transactional
-    @CacheEvict(value = "listaCupcakes", allEntries = true)
     public ResponseEntity<?> disableCupcake(@PathVariable final String cupcakeId) {
         try {
-            CupcakeDTO dto = cupcakeService.disableCupcake(cupcakeId);
+            CupcakeDTO dto = cupcakeService.updateDisableFlagCupcake(cupcakeId, true);
 
             return ResponseEntity.ok(dto);
         } catch (final NoSuchElementException noSuchElementException) {
@@ -75,7 +69,20 @@ public class CupcakeController {
         } catch (final Exception exception) {
             return ResponseEntity.internalServerError().build();
         }
+    }
 
+    @PutMapping("/{cupcakeId}/enable")
+    @Transactional
+    public ResponseEntity<?> enableCupcake(@PathVariable final String cupcakeId) {
+        try {
+            CupcakeDTO dto = cupcakeService.updateDisableFlagCupcake(cupcakeId, false);
+
+            return ResponseEntity.ok(dto);
+        } catch (final NoSuchElementException noSuchElementException) {
+            return ResponseEntity.notFound().build();
+        } catch (final Exception exception) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
 }

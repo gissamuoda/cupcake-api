@@ -9,3 +9,9 @@ management:
     web:
       exposure:
         include: info, health
+
+cupcakeapi:
+  security:
+    token:
+      secret: ${JWT_SECRET:myreallysecurejwtsecret}
+      issuer: API Cupcakeapi
