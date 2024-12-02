@@ -1,1 +1,1 @@
-web: java -var target/cupcakeapi-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=heroku
+web: java -jar target/cupcakeapi-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=heroku
