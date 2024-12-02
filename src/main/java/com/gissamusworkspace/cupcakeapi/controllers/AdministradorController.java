@@ -23,7 +23,7 @@ public class AdministradorController {
     @PostMapping
     @Transactional
     @ResponseStatus(HttpStatus.CREATED)
-    public AdministradorDTO saveCliente(@RequestBody @Valid final AdministradorForm form) {
+    public AdministradorDTO saveAdministrador(@RequestBody @Valid final AdministradorForm form) {
         return service.saveAdministrador(form);
     }
 
