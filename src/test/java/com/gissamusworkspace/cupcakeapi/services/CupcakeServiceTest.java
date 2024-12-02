@@ -67,14 +67,14 @@ class CupcakeServiceTest {
         when(repository.findById(any(UUID.class))).thenReturn(Optional.of(CupcakeBuild.getEntity(false, true)));
         when(repository.save(any(CupcakeEntity.class))).thenReturn(CupcakeBuild.getEntity(true, true));
 
-        assertDoesNotThrow(() -> service.disableCupcake(UUID.randomUUID().toString()));
+        assertDoesNotThrow(() -> service.updateDisableFlagCupcake(UUID.randomUUID().toString(), false));
     }
 
     @Test
     void testDisableCupcakeNotFoundId() {
         when(repository.findById(any(UUID.class))).thenThrow(new EntityNotFoundException());
 
-        assertThrows(EntityNotFoundException.class, () -> service.disableCupcake(UUID.randomUUID().toString()));
+        assertThrows(EntityNotFoundException.class, () -> service.updateDisableFlagCupcake(UUID.randomUUID().toString(), true));
     }
 
 }

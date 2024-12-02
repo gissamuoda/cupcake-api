@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -60,12 +62,23 @@ class PedidoControllerTest {
 
     @Test
     void testDeleteEndpointNoResult() {
-        doThrow(new RuntimeException()).when(service).deletePedido(anyString());
+        doThrow(new NoSuchElementException()).when(service).deletePedido(anyString());
 
         assertDoesNotThrow(() -> {
             ResponseEntity<?> response = controller.deletePedido("randomString");
 
             assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        });
+    }
+
+    @Test
+    void testDeleteEndpointException() {
+        doThrow(new RuntimeException()).when(service).deletePedido(anyString());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.deletePedido("randomString");
+
+            assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
         });
     }
 
@@ -83,12 +96,23 @@ class PedidoControllerTest {
 
     @Test
     void testUpdatePedidoStatusEndpointNoResult() {
-        when(service.updateStatusPedido(anyString(), anyInt())).thenThrow(new RuntimeException());
+        when(service.updateStatusPedido(anyString(), anyInt())).thenThrow(new NoSuchElementException());
 
         assertDoesNotThrow(() -> {
             ResponseEntity<?> response = controller.updateStatusPedido("randomString", 1);
 
             assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        });
+    }
+
+    @Test
+    void testUpdatePedidoStatusEndpointException() {
+        when(service.updateStatusPedido(anyString(), anyInt())).thenThrow(new RuntimeException());
+
+        assertDoesNotThrow(() -> {
+            ResponseEntity<?> response = controller.updateStatusPedido("randomString", 1);
+
+            assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
         });
     }
 
