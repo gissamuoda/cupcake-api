@@ -22,6 +22,7 @@ public interface PedidoEntityMapper {
     @Mapping(target = "tipoEntrega", source = "tipoEntrega")
     @Mapping(target = "statusPedido", ignore = true)
     @Mapping(target = "dataHoraCriacaoPedido", ignore = true)
+    @Mapping(target = "cupcakes", ignore = true)
     PedidoEntity mapEntity(PedidoForm form);
 
     @AfterMapping

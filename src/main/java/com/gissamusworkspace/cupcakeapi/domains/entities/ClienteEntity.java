@@ -42,7 +42,7 @@ public class ClienteEntity implements UserDetails {
     @Column(nullable = false)
     private String senha;
 
-    private String telephone;
+    private String telefone;
 
     private Boolean administrador;
 

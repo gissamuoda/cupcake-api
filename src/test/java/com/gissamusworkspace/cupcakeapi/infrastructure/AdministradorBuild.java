@@ -12,7 +12,7 @@ public class AdministradorBuild {
         form.setNome("nome");
         form.setEmail("email");
         form.setSenha("senha");
-        form.setTelephone("telephone");
+        form.setTelefone("telephone");
 
         return form;
     }
@@ -23,7 +23,7 @@ public class AdministradorBuild {
         entity.setNome("nome");
         entity.setEmail("email");
         entity.setSenha("senha");
-        entity.setTelephone("telephone");
+        entity.setTelefone("telephone");
         entity.setEnderecos(null);
         entity.setAdministrador(true);
 

@@ -13,7 +13,7 @@ public class ClienteBuild {
         form.setNome("nome");
         form.setEmail("email");
         form.setSenha("senha");
-        form.setTelephone("telephone");
+        form.setTelefone("telephone");
         form.setEnderecos(List.of(EnderecoBuild.getForm()));
 
         return form;
@@ -25,7 +25,7 @@ public class ClienteBuild {
         entity.setNome("nome");
         entity.setEmail("email");
         entity.setSenha("senha");
-        entity.setTelephone("telephone");
+        entity.setTelefone("telephone");
         entity.setEnderecos(List.of(EnderecoBuild.getEntity()));
 
         entity.getEnderecos().forEach(endereco -> {

@@ -26,7 +26,7 @@ class AdminEntityMapperTest {
         assertEquals(form.getNome(), mapped.getNome());
         assertEquals(form.getEmail(), mapped.getEmail());
         assertEquals(form.getSenha(), mapped.getSenha());
-        assertEquals(form.getTelephone(), mapped.getTelephone());
+        assertEquals(form.getTelefone(), mapped.getTelefone());
         assertTrue(mapped.getAdministrador());
     }
 
@@ -37,7 +37,7 @@ class AdminEntityMapperTest {
         assertEquals(entity.getId(), mapped.getId());
         assertEquals(entity.getNome(), mapped.getNome());
         assertEquals(entity.getEmail(), mapped.getEmail());
-        assertEquals(form.getTelephone(), mapped.getTelephone());
+        assertEquals(form.getTelefone(), mapped.getTelefone());
     }
 
 }

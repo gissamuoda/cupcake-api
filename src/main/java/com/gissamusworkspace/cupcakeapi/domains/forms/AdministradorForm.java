@@ -17,6 +17,6 @@ public class AdministradorForm {
 
     private String senha;
 
-    private String telephone;
+    private String telefone;
 
 }

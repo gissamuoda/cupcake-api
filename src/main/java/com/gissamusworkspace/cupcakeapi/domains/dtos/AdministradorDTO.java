@@ -19,6 +19,6 @@ public class AdministradorDTO {
 
     private String email;
 
-    private String telephone;
+    private String telefone;
 
 }

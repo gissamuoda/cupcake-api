@@ -16,15 +16,17 @@ public interface AdminEntityMapper {
     @Mapping(target = "nome", source = "nome")
     @Mapping(target = "email", source = "email")
     @Mapping(target = "senha", source = "senha")
-    @Mapping(target = "telephone", source = "telephone")
+    @Mapping(target = "telefone", source = "telefone")
     @Mapping(target = "administrador", constant = "true")
+    @Mapping(target = "enderecos", ignore = true)
+    @Mapping(target = "authorities", ignore = true)
     AdminEntity mapEntity(AdministradorForm form);
 
 
     @Mapping(target = "id", source = "id")
     @Mapping(target = "nome", source = "nome")
     @Mapping(target = "email", source = "email")
-    @Mapping(target = "telephone", source = "telephone")
+    @Mapping(target = "telefone", source = "telefone")
     AdministradorDTO mapDto(AdminEntity entity);
 
 }

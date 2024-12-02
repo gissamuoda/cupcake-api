@@ -20,9 +20,10 @@ public interface ClienteEntityMapper {
     @Mapping(target = "nome", source = "nome")
     @Mapping(target = "email", source = "email")
     @Mapping(target = "senha", source = "senha")
-    @Mapping(target = "telephone", source = "telephone")
+    @Mapping(target = "telefone", source = "telefone")
     @Mapping(target = "enderecos", source = "enderecos")
     @Mapping(target = "administrador", constant = "false")
+    @Mapping(target = "authorities", ignore = true)
     ClienteEntity mapEntity(ClienteForm form);
 
     @AfterMapping
@@ -35,7 +36,7 @@ public interface ClienteEntityMapper {
     @Mapping(target = "id", source = "id")
     @Mapping(target = "nome", source = "nome")
     @Mapping(target = "email", source = "email")
-    @Mapping(target = "telephone", source = "telephone")
+    @Mapping(target = "telefone", source = "telefone")
     @Mapping(target = "enderecos", source = "enderecos")
     ClienteDTO mapDto(ClienteEntity entity);
 

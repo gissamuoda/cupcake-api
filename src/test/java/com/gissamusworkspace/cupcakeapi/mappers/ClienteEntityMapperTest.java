@@ -23,7 +23,7 @@ class ClienteEntityMapperTest {
         assertEquals(entity.getNome(), mapped.getNome());
         assertEquals(entity.getEmail(), mapped.getEmail());
         assertEquals(entity.getSenha(), mapped.getSenha());
-        assertEquals(entity.getTelephone(), mapped.getTelephone());
+        assertEquals(entity.getTelefone(), mapped.getTelefone());
         assertEquals(entity.getEnderecos().size(), mapped.getEnderecos().size());
     }
 
@@ -34,7 +34,7 @@ class ClienteEntityMapperTest {
         assertEquals(entity.getId(), mapped.getId());
         assertEquals(entity.getNome(), mapped.getNome());
         assertEquals(entity.getEmail(), mapped.getEmail());
-        assertEquals(entity.getTelephone(), mapped.getTelephone());
+        assertEquals(entity.getTelefone(), mapped.getTelefone());
         assertEquals(entity.getEnderecos().size(), mapped.getEnderecos().size());
     }
 

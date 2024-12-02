@@ -20,7 +20,7 @@ public class ClienteDTO {
 
     private String email;
 
-    private String telephone;
+    private String telefone;
 
     private List<EnderecoDTO> enderecos;
 

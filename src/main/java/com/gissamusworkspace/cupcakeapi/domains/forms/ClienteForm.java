@@ -19,7 +19,7 @@ public class ClienteForm {
 
     private String senha;
 
-    private String telephone;
+    private String telefone;
 
     private List<EnderecoForm> enderecos;
 
